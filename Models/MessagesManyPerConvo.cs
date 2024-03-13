@@ -1,4 +1,4 @@
-namespace TodoApi.Models
+namespace SalesBotApi.Models
 
 {
     public class MessagesManyPerConvo

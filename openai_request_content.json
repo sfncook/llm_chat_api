@@ -1,0 +1,151 @@
+{
+    "model": "{model}",
+    "messages": "{messages}",
+    "temperature": 0.7,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "response_with_optional_user_data",
+          "description": "The assistant response (text) along with optional user data and redirect URLs.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+                "assistant_response": {
+                    "type": "string",
+                    "description": "The assistant's (your) textual response to the user's last message."
+                },
+                "collected_data": {
+                    "type": "object",
+                    "description": "Any new or aggregated information collected during this conversation",
+                    "properties": {
+                        "decedent_information": {
+                            "type": "object",
+                            "description": "Information regarding the deceased person",
+                            "properties": {
+                                "full_legal_name": {
+                                    "type": "string",
+                                    "description": "The dead person's first and last name (if known)",
+                                    "examples": [
+                                        "John Smith"
+                                    ]
+                                },
+                                "place_of_death": {
+                                    "type": "string",
+                                    "description": "The address or best approximate description of the location where the person died",
+                                    "examples": [
+                                        "1234 Main Street"
+                                    ]
+                                },
+                                "date_of_death": {
+                                    "type": "string",
+                                    "examples": [
+                                        "2024-01-01"
+                                    ]
+                                },
+                                "city_of_death": {
+                                    "type": "string",
+                                    "examples": [
+                                        "San Diego"
+                                    ]
+                                },
+                                "county_of_death": {
+                                    "type": "string",
+                                    "examples": [
+                                        "San Diego"
+                                    ]
+                                }
+                            }
+                        },
+                        "affiant_information": {
+                            "type": "object",
+                            "description": "Information regarding the affiant, ie: The person with whom you are presently speaking",
+                            "properties": {
+                                "first_name": {
+                                    "type": "string",
+                                    "examples": [
+                                        "Jane"
+                                    ]
+                                },
+                                "last_name": {
+                                    "type": "string",
+                                    "examples": [
+                                        "Goodall"
+                                    ]
+                                },
+                                "email_address": {
+                                    "type": "string",
+                                    "examples": [
+                                        "jane@gmail.com"
+                                    ]
+                                },
+                                "phone_number": {
+                                    "type": "string",
+                                    "examples": [
+                                        "619-234-7654"
+                                    ]
+                                },
+                                "relationship_to_decedent": {
+                                    "type": "string",
+                                    "description": "How is this affiant releated to the decendent? What is their familial or social relationship?",
+                                    "examples": [
+                                        "Cousin",
+                                        "Spouse",
+                                        "Child",
+                                        "Friend"
+                                    ]
+                                },
+                                "affiant_is_successor": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "estate_information": {
+                            "type": "object",
+                            "description": "",
+                            "properties": {
+                                "total_value": {
+                                    "type": "number",
+                                    "description": "Total estimated monetary value of the state of the deceased",
+                                    "examples": [
+                                        150000.00,
+                                        6700
+                                    ]
+                                },
+                                "itemized_assets": {
+                                    "type": "array",
+                                    "description": "Assets of notable value that are part of the estate",
+                                    "examples": [
+                                        "Stamp collection",
+                                        "2001 Chevy Tahoe"
+                                    ],
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "description_of_assets": {
+                            "type": "string",
+                            "description": "A generalized description of assets in the estate",
+                            "examples": [
+                                "A stamp collection and a 2001 Chevy Tahoe"
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+              "assistant_response"
+            ]
+          }
+        }
+      }
+    ],
+    "tool_choice": {
+      "type": "function",
+      "function": {
+        "name": "response_with_optional_user_data"
+      }
+    }
+  }

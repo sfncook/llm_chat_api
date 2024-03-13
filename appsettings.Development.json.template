@@ -3,10 +3,10 @@
     "LogLevel": {
       "Default": "Information",
       "System": "Information",
-      "Microsoft": "Information"
+      "Microsoft": "Information",
+      "Microsoft.AspNetCore.Authentication": "Debug"
     }
   },
-  "AllowedHosts": "*",
   "AppSettings": {
     "CosmosUri": "https://lexploration-dev.documents.azure.com:443/",
     "TableCompanies": "companies-dev",
@@ -16,15 +16,20 @@
     "TableUsers": "users-dev",
     "TableLogs": "logs-dev",
     "TableMetrics": "metrics-dev",
-    
+
     "QueueEmails": "send-email",
 
-    "PrintLogsStdOut": false,
-    "WriteLogsCosmos": true,
-    "LogBufferPollRateMs": 60000,
-    "LogLevel": "Warn",
+    "PrintLogsStdOut": true,
+    "WriteLogsCosmos": false,
+    "LogBufferPollRateMs": 1000,
+    "LogLevel": "Debug",
 
-    "WriteMetricsCosmos": true,
-    "MetricsBufferPollRateMs": 60000
+    "WriteMetricsCosmos": false,
+    "MetricsBufferPollRateMs": 1000
+  },
+  "ConnectionStrings": {
+    "CosmosPrimaryAuthKey": "r5...g==",
+    "QueueConnectionStr": "DefaultEndpointsProtocol=...;AccountName=...;AccountKey=Ig...A==;EndpointSuffix=...",
+    "OpenAiApiKey": "sk-...",
   }
 }

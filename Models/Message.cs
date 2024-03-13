@@ -1,4 +1,4 @@
-namespace TodoApi.Models
+namespace SalesBotApi.Models
 
 {
     public class Message
@@ -6,7 +6,8 @@ namespace TodoApi.Models
         public string id { get; set; }
         public long _ts { get; set; }
         public string conversation_id { get; set; }
+        public string company_id { get; set; }
         public string user_msg { get; set; }
-        public string assistant_response { get; set; }
+        public AssistantResponse assistant_response { get; set; }
     }
 }
